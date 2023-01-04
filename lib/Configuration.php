@@ -62,6 +62,33 @@ class Configuration
     protected $debugFile = 'php://output';
     protected $tempFolderPath;
     protected $timeout = 120;
+    protected $accountExport;
+    protected $accountExports;
+    protected $activityFeed;
+    protected $authorizedApps;
+    protected $automations;
+    protected $batchWebhooks;
+    protected $batches;
+    protected $campaignFolders;
+    protected $campaigns;
+    protected $connectedSites;
+    protected $conversations;
+    protected $customerJourneys;
+    protected $ecommerce;
+    protected $facebookAds;
+    protected $fileManager;
+    protected $landingPages;
+    protected $lists;
+    protected $ping;
+    protected $reporting;
+    protected $reports;
+    protected $root;
+    protected $searchCampaigns;
+    protected $searchMembers;
+    protected $Surveys;
+    protected $templateFolders;
+    protected $templates;
+    protected $verifiedDomains;
 
     public function __construct()
     {
@@ -123,6 +150,27 @@ class Configuration
         return $this;
     }
 
+    public function __set($name,$value)
+    {
+      
+    	if(property_exists($this,$name))
+    	{
+    		$this->$name=$value;
+    	}
+      
+      
+    }
+    
+    public function __get($name)
+    {
+      
+    	if(property_exists($this,$name))
+    	{
+    		return $this->$name;
+    	}
+      return null;
+    }
+    
     public function setApiKey($apiKeyIdentifier, $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
